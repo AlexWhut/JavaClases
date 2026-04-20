@@ -1,4 +1,4 @@
-package Ejercicios.ArrayList;
+package Ejercicios;
 
 public class Temperaturas {
 
