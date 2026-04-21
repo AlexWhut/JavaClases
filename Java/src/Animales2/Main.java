@@ -1,6 +1,7 @@
 package Animales2;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 // ============================================================
 // CLASE: Main  (Animales2)
@@ -113,20 +114,20 @@ public class Main {
         // Peso promedio de los Perros
         if (contadorPerros > 0) {
             double promedioPesoPerros = sumaPesoPerros / contadorPerros;
-            System.out.printf("Peso promedio de los %d Perros : %.2f kg%n",
+            System.out.printf(Locale.US, "Peso promedio de los %d Perros : %.2f kg%n",
                     contadorPerros, promedioPesoPerros);
         }
 
         // Peso promedio de los Gatos
         if (contadorGatos > 0) {
             double promedioPesoGatos = sumaPesoGatos / contadorGatos;
-            System.out.printf("Peso promedio de los %d Gatos  : %.2f kg%n",
+            System.out.printf(Locale.US, "Peso promedio de los %d Gatos  : %.2f kg%n",
                     contadorGatos, promedioPesoGatos);
         }
 
         // Altura maxima de vuelo entre todos los Pajaros
         if (!nombrePajaroMasAlto.isEmpty()) {
-            System.out.printf("Altura maxima de vuelo        : %.1f m (%s)%n",
+            System.out.printf(Locale.US, "Altura maxima de vuelo        : %.1f m (%s)%n",
                     alturaMaxPajaros, nombrePajaroMasAlto);
         }
 
