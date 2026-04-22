@@ -1,3 +1,5 @@
+> Ver el indice completo de teoria: [00_Indice.md](00_Indice.md)
+
 # Los 4 Pilares de la Programacion Orientada a Objetos en Java
 
 La Programacion Orientada a Objetos (POO) en Java se basa en 4 pilares fundamentales:

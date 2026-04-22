@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(javac -encoding UTF-8 -cp Java/src -d /tmp/gestordietas_out Java/src/GestorDietas/*.java)"
+    ]
+  }
+}
