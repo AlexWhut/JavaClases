@@ -26,6 +26,7 @@ Guia de Java desde cero, organizada por temas. Cada archivo cubre un concepto en
 ## Gestion de errores y persistencia
 - [11 - Excepciones](11_Excepciones.md)
 - [12 - Serializacion](12_Serializacion.md)
+- [13 - Javadoc: documentacion de codigo](13_Javadoc.md)
 
 ---
 
