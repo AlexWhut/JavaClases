@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(javac -d out src/SeguimientoValoraciones/*.java)",
+      "Bash(java -cp out SeguimientoValoraciones.Main)"
+    ]
+  }
+}

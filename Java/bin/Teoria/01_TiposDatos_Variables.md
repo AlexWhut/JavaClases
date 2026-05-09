@@ -1,0 +1,316 @@
+# 01 - Tipos de datos y variables
+
+---
+
+## Que es una variable?
+
+Una variable es un **contenedor con nombre** donde guardas un valor en memoria.
+
+Toda variable tiene tres cosas:
+
+- **Tipo** — que clase de dato puede guardar
+- **Nombre** — como la llamas en el codigo
+- **Valor** — el dato que tiene en cada momento
+
+```java
+int edad = 20;
+```
+
+`int` es el tipo, `edad` es el nombre, `20` es el valor.
+
+---
+
+## Los 8 tipos primitivos
+
+Los tipos primitivos son los mas basicos de Java. No son objetos, se guardan directamente en memoria y son muy rapidos.
+
+### Tipos enteros
+
+| Tipo    | Tamanio | Rango                              | Cuando usarlo               |
+|---------|---------|------------------------------------|-----------------------------|
+| `byte`  | 8 bits  | -128 a 127                         | Muy raramente               |
+| `short` | 16 bits | -32.768 a 32.767                   | Muy raramente               |
+| `int`   | 32 bits | -2.147 millones a 2.147 millones   | **Uso por defecto**         |
+| `long`  | 64 bits | Numeros enormes                    | Cuando int no alcanza       |
+
+```java
+int edad       = 25;
+long poblacion = 8_000_000_000L;   // la L al final indica que es long
+                                   // el guion bajo mejora la legibilidad
+```
+
+### Tipos decimales
+
+| Tipo     | Tamanio | Precision         | Cuando usarlo               |
+|----------|---------|-------------------|-----------------------------|
+| `float`  | 32 bits | 6-7 digitos       | Raramente                   |
+| `double` | 64 bits | 15-16 digitos     | **Uso por defecto**         |
+
+```java
+double precio  = 9.99;
+float  impuesto = 0.21f;   // la f al final indica que es float
+                            // sin la f, Java lo trataria como double
+```
+
+> **Regla practica:** en el 90% de los casos usaras `int` para enteros y `double` para decimales.
+
+### Tipo caracter
+
+```java
+char letra = 'A';      // comillas SIMPLES, un solo caracter
+char numero = '7';     // el caracter '7', no el numero 7
+char espacio = ' ';
+```
+
+`char` guarda un solo caracter. Para texto usa `String`.
+
+### Tipo booleano
+
+```java
+boolean activo = true;
+boolean esMayor = (edad >= 18);   // el resultado de la comparacion es true o false
+```
+
+Solo puede valer `true` o `false`. Se usa en condiciones y bucles.
+
+---
+
+## El tipo String (texto)
+
+`String` **no es un primitivo** — es una clase. Pero Java le da sintaxis especial porque se usa constantemente.
+
+```java
+String nombre  = "Juan";      // comillas DOBLES
+String vacio   = "";           // string sin contenido (longitud 0)
+String nulo    = null;         // sin objeto asignado — CUIDADO: provoca NullPointerException
+```
+
+**Diferencia clave entre char y String:**
+
+```java
+char   inicial = 'J';        // un solo caracter — comillas simples
+String nombre  = "Juan";     // varios caracteres — comillas dobles
+```
+
+---
+
+## Declarar y asignar variables
+
+```java
+// 1. Declarar sin valor (solo en clases, no en metodos sin inicializar despues)
+int x;
+
+// 2. Declarar y asignar a la vez
+int y = 10;
+
+// 3. Cambiar el valor despues
+y = 25;
+
+// 4. Declarar varias del mismo tipo en una linea
+int a = 1, b = 2, c = 3;
+```
+
+---
+
+## Variables locales vs atributos
+
+Esta es una distincion muy importante. Segun donde declares la variable, su comportamiento cambia.
+
+```java
+public class Ejemplo {
+
+    // ATRIBUTO (campo de clase):
+    // - Vive dentro del objeto
+    // - Se crea cuando creas el objeto con new
+    // - Tiene valor por defecto si no lo inicializas
+    int contadorGlobal;         // valor por defecto: 0
+    boolean activo;             // valor por defecto: false
+    String nombre;              // valor por defecto: null
+
+    public void metodo() {
+
+        // VARIABLE LOCAL:
+        // - Vive solo dentro de este metodo
+        // - Desaparece cuando el metodo termina
+        // - NO tiene valor por defecto — debes asignarle uno antes de usarla
+        int local;
+
+        // System.out.println(local);  // ERROR de compilacion: variable no inicializada
+        local = 5;
+        System.out.println(local);    // OK: ahora si tiene valor
+    }
+}
+```
+
+---
+
+## Valores por defecto de los atributos
+
+Cuando creas un objeto con `new`, los atributos que no inicialices toman estos valores:
+
+| Tipo                         | Valor por defecto |
+|------------------------------|:-----------------:|
+| `byte`, `short`, `int`, `long` | `0`             |
+| `float`, `double`            | `0.0`             |
+| `char`                       | caracter nulo     |
+| `boolean`                    | `false`           |
+| Cualquier objeto (String, etc.) | `null`         |
+
+> Las **variables locales** NO tienen valor por defecto. Si las usas sin asignarles valor, el compilador da error.
+
+---
+
+## Constantes con `final`
+
+`final` hace que una variable no pueda cambiar su valor despues de asignarlo.
+Por convencion, los nombres de constantes van en MAYUSCULAS_CON_GUION.
+
+```java
+final double PI          = 3.14159;
+final int    MAX_VIDAS   = 3;
+final String NOMBRE_APP  = "GestorDietas";
+
+PI = 3.0;  // ERROR de compilacion: no puedes cambiar una constante
+```
+
+Los atributos `static final` son constantes de clase (compartidas, no cambian):
+
+```java
+public class Config {
+    public static final int PUERTO        = 8080;
+    public static final String VERSION    = "1.0.0";
+}
+
+// Uso desde fuera:
+System.out.println(Config.PUERTO);   // 8080
+```
+
+---
+
+## Conversion de tipos (Casting)
+
+### Conversion implicita: de tipo pequenio a grande
+
+Java la hace automaticamente porque no hay riesgo de perder datos.
+
+```java
+int    n      = 42;
+long   grande = n;      // int -> long: automatico, cabe perfectamente
+double d      = n;      // int -> double: automatico, 42 -> 42.0
+```
+
+Orden permitido sin casting: `byte -> short -> int -> long -> float -> double`
+
+### Conversion explicita: de tipo grande a pequenio
+
+Puede perder informacion, por eso debes indicarlo tu con `(tipo)`.
+
+```java
+double precio       = 9.99;
+int    precioEntero = (int) precio;     // precioEntero = 9  (se pierde el .99)
+
+long   grande       = 12345678901234L;
+int    pequenio     = (int) grande;     // puede producir un resultado incorrecto
+```
+
+### Casting entre objetos (upcasting / downcasting)
+
+Cuando trabajas con herencia:
+
+```java
+// Upcasting — de hijo a padre: siempre seguro, automatico
+Perro  perro  = new Perro("Rex");
+Animal animal = perro;               // OK, Perro "es un" Animal
+
+// Downcasting — de padre a hijo: puede fallar, hazlo con cuidado
+Animal a = new Perro("Rex");
+Perro  p = (Perro) a;                // OK si realmente es un Perro
+
+Animal a2 = new Gato("Misu");
+Perro  p2 = (Perro) a2;             // ERROR en ejecucion: ClassCastException
+```
+
+**Regla:** antes de hacer downcasting, comprueba con `instanceof`:
+
+```java
+if (a instanceof Perro) {
+    Perro p = (Perro) a;
+    p.ladrar();
+}
+```
+
+---
+
+## Ambito de una variable (scope)
+
+El **ambito** es la zona del codigo donde existe una variable. Fuera de su ambito, no existe.
+
+```java
+public class Ambito {
+
+    int atributo = 10;    // existe en todo el objeto (en todos los metodos)
+
+    public void metodo() {
+        int local = 20;   // existe solo dentro de este metodo
+
+        if (local > 5) {
+            int interior = 30;  // existe solo dentro de este bloque if
+            System.out.println(atributo);  // OK: atributo es del objeto
+            System.out.println(local);     // OK: local es del metodo
+            System.out.println(interior);  // OK: interior es de este bloque
+        }
+
+        // System.out.println(interior);  // ERROR: ya no existe
+    }
+
+    // System.out.println(local);         // ERROR: ya no existe
+}
+```
+
+---
+
+## Tipos primitivos y sus clases equivalentes (Wrappers)
+
+Cada primitivo tiene una clase equivalente llamada **wrapper**. Se usan cuando necesitas un objeto en lugar de un primitivo, por ejemplo en colecciones.
+
+| Primitivo | Wrapper     |
+|-----------|-------------|
+| `int`     | `Integer`   |
+| `double`  | `Double`    |
+| `char`    | `Character` |
+| `boolean` | `Boolean`   |
+| `long`    | `Long`      |
+| `float`   | `Float`     |
+| `byte`    | `Byte`      |
+| `short`   | `Short`     |
+
+```java
+// Las colecciones no admiten primitivos directamente
+ArrayList<int>     mal   = new ArrayList<>();   // ERROR
+ArrayList<Integer> bien  = new ArrayList<>();   // OK: usa el wrapper
+
+// Java convierte automaticamente entre primitivo y wrapper (autoboxing / unboxing)
+bien.add(5);              // autoboxing:  int 5   -> Integer 5
+int n = bien.get(0);      // unboxing:    Integer -> int
+
+// Los wrappers tienen metodos utiles
+int max    = Integer.MAX_VALUE;         // 2147483647
+int parsed = Integer.parseInt("42");    // convierte String a int
+String s   = Integer.toString(42);      // convierte int a String
+```
+
+---
+
+## Resumen
+
+```
+TIPO        PALABRA CLAVE    EJEMPLO               NOTAS
+---------   -------------    --------------------  -------------------------
+Entero      int              int n = 42;           Uso mas comun
+Entero gde  long             long n = 123L;        Necesita L al final
+Decimal     double           double d = 3.14;      Uso mas comun
+Decimal     float            float f = 3.14f;      Necesita f al final
+Caracter    char             char c = 'A';         Comillas simples
+Booleano    boolean          boolean b = true;     Solo true o false
+Texto       String           String s = "hola";    Es una clase, no primitivo
+```

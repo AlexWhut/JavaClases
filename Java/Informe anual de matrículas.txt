@@ -1,0 +1,54 @@
+Mes: 1, Año: 2024, Ingresos: 0.0€
+  BASICO
+  MEDIO
+  AVANZADO
+Mes: 2, Año: 2024, Ingresos: 0.0€
+  BASICO
+  MEDIO
+  AVANZADO
+Mes: 3, Año: 2024, Ingresos: 0.0€
+  BASICO
+  MEDIO
+  AVANZADO
+Mes: 4, Año: 2024, Ingresos: 0.0€
+  BASICO
+  MEDIO
+  AVANZADO
+Mes: 5, Año: 2024, Ingresos: 0.0€
+  BASICO
+  MEDIO
+  AVANZADO
+Mes: 6, Año: 2024, Ingresos: 0.0€
+  BASICO
+  MEDIO
+  AVANZADO
+Mes: 7, Año: 2024, Ingresos: 210.0€
+  BASICO
+    Pedro López (5 años) - Pintura en tela, nivel: BASICO, coste: 25.0€
+    Pedro López (5 años) - Música con violín, nivel: BASICO, coste: 35.0€
+    Pedro García (6 años) - Música con violín, nivel: BASICO, coste: 35.0€
+  MEDIO
+    Lucía López (9 años) - Pintura en tela, nivel: MEDIO, coste: 35.0€
+  AVANZADO
+    Lucía López (9 años) - Música con piano, nivel: AVANZADO, coste: 40.0€
+    Nuria Pérez (8 años) - Música con piano, nivel: AVANZADO, coste: 40.0€
+Mes: 8, Año: 2024, Ingresos: 0.0€
+  BASICO
+  MEDIO
+  AVANZADO
+Mes: 9, Año: 2024, Ingresos: 0.0€
+  BASICO
+  MEDIO
+  AVANZADO
+Mes: 10, Año: 2024, Ingresos: 0.0€
+  BASICO
+  MEDIO
+  AVANZADO
+Mes: 11, Año: 2024, Ingresos: 0.0€
+  BASICO
+  MEDIO
+  AVANZADO
+Mes: 12, Año: 2024, Ingresos: 0.0€
+  BASICO
+  MEDIO
+  AVANZADO
