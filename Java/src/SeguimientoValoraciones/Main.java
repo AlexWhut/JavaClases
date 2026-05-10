@@ -35,26 +35,25 @@ public class Main {
             if (item instanceof Serie serie) {
                 for (Capitulo cap : serie.getCapitulos()) {
                     if (!cap.getValoraciones().isEmpty() && cap.valoracionMedia() >= 7) {
-                        System.out.printf("  [%s] T%d E%d: %s (media: %.1f)%n",
-                                serie.getTitulo(), cap.getTemporada(),
-                                cap.getNumeroCapitulo(), cap.getTitulo(),
-                                cap.valoracionMedia());
+                        System.out.println(
+                                "  [" + serie.getTitulo() + "] T" + cap.getTemporada() + " E" + cap.getNumeroCapitulo()
+                                        + ": " + cap.getTitulo() + " (media: " + cap.valoracionMedia() + ")");
                     }
                 }
             }
         }
 
-        // 5c - Serializar a miMediateca.med
+        // 5c - Serializar a miMediateca.txt
         try (ObjectOutputStream oos = new ObjectOutputStream(
-                new FileOutputStream("miMediateca.med"))) {
+                new FileOutputStream("miMediateca.txt"))) {
             oos.writeObject(mediateca);
-            System.out.println("\nMediateca serializada en miMediateca.med");
+            System.out.println("\nMediateca serializada en miMediateca.txt");
         } catch (IOException e) {
             System.err.println("Error al serializar: " + e.getMessage());
         }
 
         // 5d - Informe de texto
-        try (PrintWriter pw = new PrintWriter(new FileWriter("Informe medios.txt"))) {
+        try (PrintWriter pw = new PrintWriter(new FileWriter("InformeCarlos.txt"))) {
 
             pw.println("Peliculas");
             for (Streaming item : mediateca) {
@@ -69,9 +68,8 @@ public class Main {
                 if (item instanceof Serie serie) {
                     pw.println("  " + serie);
                     for (Capitulo cap : serie.getCapitulos()) {
-                        pw.printf("    Temporada %d, Capitulo %d: %s. (%d)%n",
-                                cap.getTemporada(), cap.getNumeroCapitulo(),
-                                cap.getTitulo(), cap.getAnio());
+                        pw.println("    Temporada " + cap.getTemporada() + ", Capitulo " + cap.getNumeroCapitulo()
+                                + ": " + cap.getTitulo() + ". (" + cap.getAnio() + ")");
                     }
                 }
             }

@@ -1,6 +1,7 @@
 package Vehiculos;
 
-public class Coche extends Vehiculo implements Conducible { // Coche es un tipo de Vehiculo, por eso extiende de Vehiculo
+public class Coche extends Vehiculo implements Conducible { // Coche es un tipo de Vehiculo, por eso extiende de
+                                                            // Vehiculo
     private String marca;
 
     public Coche(String nombre, int velocidad, String marca) {
@@ -21,5 +22,13 @@ public class Coche extends Vehiculo implements Conducible { // Coche es un tipo 
     @Override
     public void frenar() {
         setVelocidad(0);
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
 }

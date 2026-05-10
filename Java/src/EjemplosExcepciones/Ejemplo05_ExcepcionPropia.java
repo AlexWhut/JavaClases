@@ -42,7 +42,7 @@ public class Ejemplo05_ExcepcionPropia {
 
         void ingresar(double monto) {
             saldo += monto;
-            System.out.printf("  Ingreso de %.2f €. Saldo actual: %.2f €%n", monto, saldo);
+            System.out.println("  Ingreso de " + monto + " €. Saldo actual: " + saldo + " €");
         }
 
         void retirar(double monto) throws SaldoInsuficienteException {
@@ -50,7 +50,7 @@ public class Ejemplo05_ExcepcionPropia {
                 throw new SaldoInsuficienteException(saldo, monto);
             }
             saldo -= monto;
-            System.out.printf("  Retirada de %.2f €. Saldo actual: %.2f €%n", monto, saldo);
+            System.out.println("  Retirada de " + monto + " €. Saldo actual: " + saldo + " €");
         }
 
         double getSaldo() { return saldo; }
@@ -69,8 +69,7 @@ public class Ejemplo05_ExcepcionPropia {
                 cuenta.retirar(monto);
             } catch (SaldoInsuficienteException e) {
                 System.out.println("  ERROR: " + e.getMessage());
-                System.out.printf("  Datos extra → saldo: %.2f €, solicitado: %.2f €%n",
-                        e.getSaldoActual(), e.getMontoSolicitado());
+                System.out.println("  Datos extra → saldo: " + e.getSaldoActual() + " €, solicitado: " + e.getMontoSolicitado() + " €");
             }
         }
         System.out.println();

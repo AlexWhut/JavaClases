@@ -11,7 +11,8 @@ public class Main {
 
         Pelicula p1 = new Pelicula("Fast & Furious X", "Louis Leterrier", TipoClasificacion.MAYORES, 2023);
         Pelicula p2 = new Pelicula("West Side Story", "Steven Spielberg", TipoClasificacion.JUVENIL, 2021);
-
+        p1.annadirValoracion(LocalDate.now(), 10);
+        p2.annadirValoracion(LocalDate.now(), 8);
         Serie s1 = new Serie("Juego de Tronos", "David Benioff y otros", TipoClasificacion.MAYORES);
         s1.annadirCapitulo(1, 1, 2011, "Se acerca el invierno");
         s1.annadirCapitulo(1, 2, 2011, "El camino real");

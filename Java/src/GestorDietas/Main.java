@@ -137,7 +137,7 @@ public class Main {
             return;
         }
         for (int i = 0; i < lista.size(); i++) {
-            System.out.printf("%d. %s%n", i + 1, lista.get(i));
+            System.out.println((i + 1) + ". " + lista.get(i));
         }
     }
 
@@ -326,7 +326,7 @@ public class Main {
             return;
         }
         for (int i = 0; i < historial.size(); i++) {
-            System.out.printf("%d. %s%n", i + 1, historial.get(i));
+            System.out.println((i + 1) + ". " + historial.get(i));
         }
     }
 
@@ -396,8 +396,7 @@ public class Main {
         if (receta == null) return;
         try {
             boolean puede = usuario.puedeConsumir(receta);
-            System.out.printf("¿Puede consumir '%s'? %s%n",
-                receta.getNombre(), puede ? "SÍ" : "NO");
+            System.out.println("¿Puede consumir '" + receta.getNombre() + "'? " + (puede ? "SÍ" : "NO"));
         } catch (RecetaException e) {
             System.out.println("[!] Error: " + e.getMessage());
         }
@@ -410,8 +409,7 @@ public class Main {
         if (receta == null) return;
         try {
             int puntuacion = usuario.evaluarReceta(receta);
-            System.out.printf("Puntuación de '%s': %d/100%n",
-                receta.getNombre(), puntuacion);
+            System.out.println("Puntuación de '" + receta.getNombre() + "': " + puntuacion + "/100");
         } catch (RecetaException e) {
             System.out.println("[!] Error: " + e.getMessage());
         }
@@ -424,8 +422,7 @@ public class Main {
         if (fecha == null) return;
         try {
             int puntuacion = usuario.evaluarMenuDiario(fecha);
-            System.out.printf("Puntuación del menú del %s: %d/100%n",
-                fecha.format(FORMATO_FECHA), puntuacion);
+            System.out.println("Puntuación del menú del " + fecha.format(FORMATO_FECHA) + ": " + puntuacion + "/100");
         } catch (UsuarioException | RecetaException e) {
             System.out.println("[!] Error: " + e.getMessage());
         }
@@ -473,8 +470,7 @@ public class Main {
             for (Ingrediente ing : r.getIngredientes()) {
                 // Solo los AlimentoProcesado pueden necesitar cocinado
                 if (ing instanceof AlimentoProcesado ap && ap.isNecesitaCocinado()) {
-                    System.out.printf("Receta: %-20s | Ingrediente: %s (prep: %s)%n",
-                        r.getNombre(), ap.getNombre(), ap.getPreparacion());
+                    System.out.println("Receta: " + r.getNombre() + " | Ingrediente: " + ap.getNombre() + " (prep: " + ap.getPreparacion() + ")");
                     hayAlguno = true;
                 }
             }
@@ -503,7 +499,7 @@ public class Main {
         }
         System.out.println("Elige una receta:");
         for (int i = 0; i < historial.size(); i++) {
-            System.out.printf("  %d. %s%n", i + 1, historial.get(i).getNombre());
+            System.out.println("  " + (i + 1) + ". " + historial.get(i).getNombre());
         }
         int eleccion = leerEntero("Número de receta: ");
         if (eleccion < 1 || eleccion > historial.size()) {

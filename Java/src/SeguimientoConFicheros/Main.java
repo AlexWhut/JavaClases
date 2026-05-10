@@ -52,22 +52,22 @@ public class Main {
         }
 
         // Exportar informe de texto
-        try (PrintWriter pw = new PrintWriter(new FileWriter("Informe medios.txt"))) {
+        try (PrintWriter printWriter = new PrintWriter(new FileWriter("Informe medios.txt"))) {
 
-            pw.println("Peliculas");
+            printWriter.println("Peliculas");
             for (Streaming item : mediateca) {
                 if (item instanceof Pelicula pelicula) {
-                    pw.println("  " + pelicula);
+                    printWriter.println("  " + pelicula);
                 }
             }
 
-            pw.println();
-            pw.println("Series");
+            printWriter.println();
+            printWriter.println("Series");
             for (Streaming item : mediateca) {
                 if (item instanceof Serie serie) {
-                    pw.println("  " + serie);
+                    printWriter.println("  " + serie);
                     for (Capitulo cap : serie.getCapitulos()) {
-                        pw.println("    Temporada " + cap.getTemporada() + ", Capitulo "
+                        printWriter.println("    Temporada " + cap.getTemporada() + ", Capitulo "
                                 + cap.getNumeroCapitulo() + ": " + cap.getTitulo()
                                 + ". (" + cap.getAnio() + ")");
                     }

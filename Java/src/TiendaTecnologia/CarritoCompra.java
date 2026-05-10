@@ -78,10 +78,8 @@ public class CarritoCompra {
         }
         System.out.println("  --- CARRITO ACTUAL ---");
         for (int i = 0; i < items.size(); i++) {
-            System.out.printf("  %d. %s%n", i + 1, items.get(i).getDescripcion());
-            // System.out.println(" " + (i + 1) + ". " + items.get(i).getDescripcion());
+            System.out.println("  " + (i + 1) + ". " + items.get(i).getDescripcion());
         }
-        System.out.printf("  TOTAL: %.2f euros%n", calcularTotal());
-        // System.out.println(" TOTAL: " + calcularTotal() + " euros");
+        System.out.println("  TOTAL: " + calcularTotal() + " euros");
     }
 }

@@ -4,7 +4,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
- * Representa una serie de streaming compuesta por capítulos organizados en temporadas.
+ * Representa una serie de streaming compuesta por capítulos organizados en
+ * temporadas.
  * Extiende {@link Streaming} e implementa {@link java.io.Serializable}.
  */
 public class Serie extends Streaming {
@@ -25,12 +26,13 @@ public class Serie extends Streaming {
 
     /**
      * Añade un capítulo a la serie.
-     * Solo se permite si el año del capítulo es igual o posterior al año de inicio de la serie.
+     * Solo se permite si el año del capítulo es igual o posterior al año de inicio
+     * de la serie.
      *
-     * @param temporada      número de temporada (positivo)
-     * @param numCapitulo    número de capítulo dentro de la temporada (positivo)
-     * @param anio           año de realización del capítulo
-     * @param titulo         título del capítulo
+     * @param temporada   número de temporada (positivo)
+     * @param numCapitulo número de capítulo dentro de la temporada (positivo)
+     * @param anio        año de realización del capítulo
+     * @param titulo      título del capítulo
      */
     public void annadirCapitulo(int temporada, int numCapitulo, int anio, String titulo) {
         if (!capitulos.isEmpty() && anio < annoInicio())
@@ -40,17 +42,20 @@ public class Serie extends Streaming {
 
     /**
      * Añade una valoración a un capítulo concreto de una temporada.
-     * La fecha de valoración no puede ser anterior al año de realización del capítulo.
+     * La fecha de valoración no puede ser anterior al año de realización del
+     * capítulo.
      *
      * @param temporada   número de temporada
      * @param numCapitulo número de capítulo
      * @param fecha       fecha en que se realiza la valoración
      * @param valoracion  valor entero entre 0 y 10
-     * @return {@code true} si la valoración se añadió correctamente, {@code false} en caso contrario
+     * @return {@code true} si la valoración se añadió correctamente, {@code false}
+     *         en caso contrario
      */
     public boolean annadirValoracion(int temporada, int numCapitulo, LocalDate fecha, int valoracion) {
         Capitulo c = buscarCapitulo(temporada, numCapitulo);
-        if (c == null) return false;
+        if (c == null)
+            return false;
         try {
             c.addValoracion(fecha, valoracion);
             return true;
@@ -83,7 +88,8 @@ public class Serie extends Streaming {
      *
      * @param temporada número de temporada
      * @return valoración media de la temporada
-     * @throws IllegalArgumentException si la temporada no existe o no tiene valoraciones
+     * @throws IllegalArgumentException si la temporada no existe o no tiene
+     *                                  valoraciones
      */
     public double valoracionMediaTemporada(int temporada) {
         double suma = 0;

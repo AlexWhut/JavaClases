@@ -155,8 +155,7 @@ public class Main {
                         System.out.println("  Opcion no valida.");
                     } else {
                         int stockTotal = inventario.consultarStock(tipoConsulta);
-                        System.out.printf("  Quedan %d unidades de tipo %s en total.%n",
-                                stockTotal, tipoConsulta);
+                        System.out.println("  Quedan " + stockTotal + " unidades de tipo " + tipoConsulta + " en total.");
                     }
                     break;
 
@@ -184,10 +183,9 @@ public class Main {
                     ArrayList<Producto> filtrados = inventario.buscarPorPrecioMaximo(maxPrecio, tipoFiltrado);
 
                     if (filtrados.isEmpty()) {
-                        System.out.printf("  No hay productos de tipo %s por debajo de %.2f euros.%n",
-                                tipoFiltrado, maxPrecio);
+                        System.out.println("  No hay productos de tipo " + tipoFiltrado + " por debajo de " + maxPrecio + " euros.");
                     } else {
-                        System.out.printf("  Productos de tipo %s hasta %.2f euros:%n", tipoFiltrado, maxPrecio);
+                        System.out.println("  Productos de tipo " + tipoFiltrado + " hasta " + maxPrecio + " euros:");
                         for (Producto p : filtrados) {
                             // POLIMORFISMO: getDescripcion() ejecuta la version correcta
                             System.out.println("    -> " + p.getDescripcion());
@@ -301,7 +299,7 @@ private static Cliente pedirDatosCliente(Scanner sc) {
                     );
                 }
                 double cambio = efectivo - total;
-                System.out.printf("  [OK] Pago aceptado. Cambio: %.2f euros%n", cambio);
+                System.out.println("  [OK] Pago aceptado. Cambio: " + cambio + " euros");
 
             } catch (PagoInsuficienteException e) {
                 System.out.println("  [X] " + e.getMessage());

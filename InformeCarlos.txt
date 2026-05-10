@@ -1,0 +1,10 @@
+Peliculas
+  Fast & Furious X, dirigida por Louis Leterrier (2023)
+  West Side Story, dirigida por Steven Spielberg (2021)
+
+Series
+  Juego de Tronos. Dirigida por David Benioff y otros.
+    Temporada 1, Capitulo 1: Se acerca el invierno. (2011)
+    Temporada 1, Capitulo 2: El camino real. (2011)
+    Temporada 2, Capitulo 1: El norte no olvida. (2012)
+    Temporada 2, Capitulo 2: Las tierras de los Lannister. (2012)

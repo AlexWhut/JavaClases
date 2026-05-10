@@ -23,6 +23,7 @@ public class Pelicula extends Streaming {
 
     @Override
     public String toString() {
-        return getTitulo() + ", dirigida por " + getDirector() + " (" + anio + ")";
+        String val = valoraciones.isEmpty() ? "sin valorar" : String.valueOf(valoraciones.get(valoraciones.size() - 1).getValoracion());
+        return getTitulo() + ", dirigida por " + getDirector() + " (" + anio + ") - " + val;
     }
 }

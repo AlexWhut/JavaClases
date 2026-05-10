@@ -57,7 +57,7 @@ public class Factura {
             System.out.println("    - " + p.getDescripcion());
         }
         System.out.println("----------------------------------------");
-        System.out.printf("  TOTAL PAGADO : %.2f euros%n", total);
+        System.out.println("  TOTAL PAGADO : " + total + " euros");
         System.out.println("========================================");
         System.out.println("      ¡Gracias por su compra!           ");
         System.out.println("========================================");

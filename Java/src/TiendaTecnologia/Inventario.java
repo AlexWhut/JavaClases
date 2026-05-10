@@ -49,11 +49,11 @@ public class Inventario {
     public void mostrarInventario() {
         System.out.println();
         System.out.println("  === INVENTARIO DE LA TIENDA ===");
-        System.out.printf("  %-3s %-25s %8s %8s%n", "#", "Nombre", "Precio", "Stock");
+        System.out.println("  # Nombre Precio Stock");
         System.out.println("  " + "-".repeat(50));
         for (int i = 0; i < catalogo.size(); i++) {
             Producto p = catalogo.get(i);
-            System.out.printf("  %-3d %s%n", i + 1, p.toString());
+            System.out.println("  " + (i + 1) + ". " + p.toString());
         }
         System.out.println();
     }
