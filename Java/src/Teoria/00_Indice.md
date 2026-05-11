@@ -22,6 +22,7 @@ Guia de Java desde cero, organizada por temas. Cada archivo cubre un concepto en
 ## Estructuras de datos y utilidades
 - [09 - Colecciones: ArrayList, HashMap...](09_Colecciones.md)
 - [10 - Strings](10_Strings.md)
+- [Random: numeros aleatorios](Random.md)
 
 ## Gestion de errores y persistencia
 - [11 - Excepciones](11_Excepciones.md)
